@@ -1,0 +1,18 @@
+function response(){
+        
+      var response_array=JSON.parse(this.response);
+      
+      var only_countries_element=response_array.reduce(function(continent){
+        return continent.Asia;
+      });
+      var country=only_countries_element.filter((countries)=>countries);
+      var response=country.map((region)=>{
+        return region;
+      });
+      console.log(response)
+    }
+        var XMLHttpRequest=require('xhr2');
+       let request=new XMLHttpRequest();
+       request.addEventListener("load",response);
+      request.open("GET","https://restcountries.com/v3.1/all");
+       request.send();
